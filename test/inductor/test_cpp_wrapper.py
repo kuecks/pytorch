@@ -90,6 +90,16 @@ if RUN_CPU:
         BaseTest("test_bitwise"),  # int32
         BaseTest("test_bmm1"),
         BaseTest("test_bmm2"),
+        BaseTest(
+            "test_conv2d_binary_inplace_fusion_pass",
+            "",
+            test_mkldnn_pattern_matcher.TestPaternMatcher(),
+            condition=torch._C.has_mkldnn,
+            func_inputs=[
+                ["op_convolution_pointwise_binary_.call"],
+                ["op_convolution_pointwise_binary.call"],
+            ],
+        ),
         BaseTest("test_cat"),  # alias
         BaseTest(
             "test_conv2d_binary_inplace_fusion_failed",
