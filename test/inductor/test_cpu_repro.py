@@ -679,7 +679,7 @@ class CPUReproTests(TestCase):
             "randn",
             "isnan",
             "rand",
-            "randint",
+            "randint64",
             "bitwise_and",
             "bitwise_or",
             "bitwise_xor",
